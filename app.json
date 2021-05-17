@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "my-app",
+    "slug": "my-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "platforms": ["android", "web"],
+    "assetBundlePatterns": ["**/*"],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "primaryColor": "#4338CA",
+    "backgroundColor": "#000000",
+    "androidNavigationBar": {
+      "backgroundColor": "#000000",
+      "barStyle": "dark-content"
+    },
+    "android": {
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#000000"
+      },
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "userInterfaceStyle": "dark"
+    }
+  }
+}

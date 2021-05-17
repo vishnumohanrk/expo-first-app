@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "universe/native",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json"
+  },
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "react/jsx-props-no-spreading": "off",
+    "react/style-prop-object": ["error", { "allow": ["StatusBar"] }],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-use-before-define": ["error", { "variables": false }]
+  }
+}
