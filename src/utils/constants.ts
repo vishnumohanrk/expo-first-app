@@ -3,6 +3,7 @@ export const appColors = {
   secondaryBg: '#313235',
   primaryText: '#F8F9FA',
   secondaryText: '#B8BCC1',
+  accent: '#8AB4F8',
 } as const;
 
 export const rippleConfig = {

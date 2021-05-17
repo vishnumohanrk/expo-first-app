@@ -13,31 +13,22 @@ export const ArticleCard = () => (
           source={{ uri: 'https://picsum.photos/id/14/300' }}
           style={styles.articleImage}
         />
-        <View style={styles.bottom}>
-          <AppText style={styles.title} ellipsizeMode="tail" numberOfLines={3}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          </AppText>
-          <AppText
-            style={styles.subTitle}
-            ellipsizeMode="tail"
-            numberOfLines={2}
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-            inventore, aspernatur labore asperiores quibusdam animi iste dolor
-            facere dolores ullam?
-          </AppText>
-          <View style={styles.authorIconsContainer}>
-            <Image
-              source={{ uri: 'https://picsum.photos/id/14/18' }}
-              style={styles.authorImage}
-            />
-            <AppText style={styles.authorName}>Lorem, ipsum.</AppText>
-            <View style={styles.iconsContainer}>
-              <ArticleCardActions.Save />
-              <View style={{ width: 36 }} />
-              <ArticleCardActions.Share />
-            </View>
-          </View>
+        <AppText style={styles.title} ellipsizeMode="tail" numberOfLines={3}>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        </AppText>
+        <AppText style={styles.subTitle} ellipsizeMode="tail" numberOfLines={2}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
+          inventore, aspernatur labore asperiores quibusdam animi iste dolor
+          facere dolores ullam?
+        </AppText>
+        <View style={styles.authorIconsContainer}>
+          <Image
+            source={{ uri: 'https://picsum.photos/id/14/18' }}
+            style={styles.authorImage}
+          />
+          <AppText style={styles.authorName}>Lorem, ipsum.</AppText>
+          <ArticleCardActions.Save />
+          <ArticleCardActions.Share />
         </View>
       </View>
     </Pressable>
@@ -57,23 +48,22 @@ const styles = StyleSheet.create({
     height: 210,
     resizeMode: 'cover',
   },
-  bottom: {
-    padding: 16,
-  },
   title: {
     fontSize: 18,
     fontWeight: '600',
     color: appColors.primaryText,
+    padding: 16,
+    paddingBottom: 7,
   },
   subTitle: {
     fontSize: 15,
     color: appColors.secondaryText,
-    marginTop: 7,
+    paddingHorizontal: 16,
   },
   authorIconsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 16,
+    paddingLeft: 16,
   },
   authorImage: {
     width: 18,
@@ -82,10 +72,7 @@ const styles = StyleSheet.create({
   },
   authorName: {
     flex: 1,
-    marginLeft: 6,
+    marginLeft: 8,
     color: appColors.secondaryText,
-  },
-  iconsContainer: {
-    flexDirection: 'row',
   },
 });
