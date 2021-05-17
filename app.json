@@ -6,29 +6,25 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
-    "platforms": ["android", "web"],
+    "platforms": ["android"],
     "assetBundlePatterns": ["**/*"],
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "primaryColor": "#4338CA",
-    "backgroundColor": "#000000",
+
     "androidNavigationBar": {
-      "backgroundColor": "#000000",
+      "backgroundColor": "#202124",
       "barStyle": "dark-content"
     },
     "android": {
       "splash": {
         "image": "./assets/splash.png",
         "resizeMode": "contain",
-        "backgroundColor": "#000000"
+        "backgroundColor": "#202124"
       },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000000"
+        "backgroundColor": "#202124"
       },
       "userInterfaceStyle": "dark"
     }
