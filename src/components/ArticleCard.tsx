@@ -2,7 +2,7 @@ import * as Linking from 'expo-linking';
 import * as React from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 
-import { appColors, rippleConfig } from '../utils/constants';
+import { appColors, rippleConfig } from '../utils';
 import { TArticle } from '../utils/types';
 import { AppText } from './AppText';
 import { ArticleCardSave } from './ArticleCardSave';
@@ -20,7 +20,7 @@ export const ArticleCard = (props: TArticle) => {
       <Pressable onPress={handlePress} android_ripple={rippleConfig}>
         <View>
           <Image source={{ uri: coverImage }} style={styles.articleImage} />
-          <AppText style={styles.title} numberOfLines={3}>
+          <AppText style={styles.title} numberOfLines={2}>
             {title}
           </AppText>
           <AppText style={styles.subTitle} numberOfLines={2}>
@@ -50,14 +50,15 @@ const styles = StyleSheet.create({
   },
   articleImage: {
     width: '100%',
-    height: 210,
+    height: 205,
     resizeMode: 'cover',
   },
   title: {
     fontSize: 18,
     fontWeight: '600',
     color: appColors.primaryText,
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop: 14,
     paddingBottom: 7,
   },
   subTitle: {

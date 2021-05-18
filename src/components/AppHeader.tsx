@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StatusBar, StyleSheet } from 'react-native';
 
-import { appColors } from '../utils/constants';
+import { appColors } from '../utils';
 import { AppText } from './AppText';
 
 export const AppHeader = ({ text }: { text: string }) => (

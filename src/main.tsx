@@ -7,7 +7,7 @@ import { StyleSheet } from 'react-native';
 import { bottomBarOptions, BottomNav } from './components/BottomNav';
 import { CollectionsPage } from './screens/Collections';
 import { DiscoverPage } from './screens/Discover';
-import { appColors } from './utils/constants';
+import { appColors } from './utils';
 
 const Tab = createBottomTabNavigator();
 

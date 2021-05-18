@@ -9,11 +9,11 @@ import {
 import { AppHeader } from '../components/AppHeader';
 import { ArticleCard } from '../components/ArticleCard';
 import { Divider } from '../components/Divider';
-import { appColors } from '../utils/constants';
-import { defData } from '../utils/types';
+import { useArticles } from '../hooks/useArticles';
+import { appColors } from '../utils';
 
 export const DiscoverPage = () => {
-  const [isLoading, setIsLoading] = React.useState(false);
+  const { articles, isLoading, update } = useArticles();
 
   const ListHeader = () => <AppHeader text="Articles" />;
 
@@ -24,20 +24,17 @@ export const DiscoverPage = () => {
   return (
     <FlatList
       style={{ paddingHorizontal: 16 }}
-      data={['1', '2', '3', '4', '5', '6', '7']}
-      renderItem={() => <ArticleCard {...defData} />}
+      data={articles}
+      keyExtractor={i => i.id}
+      renderItem={({ item }) => <ArticleCard {...item} />}
       ItemSeparatorComponent={Divider}
       ListHeaderComponent={ListHeader}
       ListEmptyComponent={Spinner}
-      ListFooterComponent={() => <View style={{ height: 36 }} />}
-      keyExtractor={i => i}
-      refreshing={isLoading}
+      ListFooterComponent={View}
+      ListFooterComponentStyle={{ height: 36 }}
       refreshControl={
         <RefreshControl
-          onRefresh={() => {
-            setIsLoading(true);
-            setTimeout(() => setIsLoading(false), 5000);
-          }}
+          onRefresh={update}
           refreshing={isLoading}
           progressViewOffset={36}
         />

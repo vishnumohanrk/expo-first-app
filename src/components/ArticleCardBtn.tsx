@@ -2,7 +2,7 @@ import { MaterialIcons as MdIcon } from '@expo/vector-icons';
 import * as React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 
-import { rippleConfig } from '../utils/constants';
+import { rippleConfig } from '../utils';
 
 type ArticleCardBtnProps = {
   label: string;

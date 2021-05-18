@@ -5,7 +5,7 @@ import { AppHeader } from '../components/AppHeader';
 import { AppText } from '../components/AppText';
 import { ArticleCard } from '../components/ArticleCard';
 import { Divider } from '../components/Divider';
-import { appColors } from '../utils/constants';
+import { appColors } from '../utils';
 import { defData } from '../utils/types';
 
 export const CollectionsPage = () => {

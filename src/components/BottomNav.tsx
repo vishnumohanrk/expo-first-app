@@ -6,7 +6,7 @@ import {
 import { RouteProp } from '@react-navigation/native';
 import * as React from 'react';
 
-import { appColors } from '../utils/constants';
+import { appColors } from '../utils';
 
 export const bottomBarOptions: BottomTabBarOptions = {
   activeTintColor: appColors.accent,
