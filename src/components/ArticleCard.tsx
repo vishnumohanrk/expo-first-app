@@ -3,7 +3,8 @@ import { Image, Pressable, StyleSheet, View } from 'react-native';
 
 import { appColors, rippleConfig } from '../utils/constants';
 import { AppText } from './AppText';
-import * as ArticleCardActions from './ArticleCardActions';
+import { ArticleCardSave } from './ArticleCardSave';
+import { ArticleCardShare } from './ArticleCardShare';
 
 export const ArticleCard = () => (
   <View style={styles.container}>
@@ -13,10 +14,10 @@ export const ArticleCard = () => (
           source={{ uri: 'https://picsum.photos/id/14/300' }}
           style={styles.articleImage}
         />
-        <AppText style={styles.title} ellipsizeMode="tail" numberOfLines={3}>
+        <AppText style={styles.title} numberOfLines={3}>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit.
         </AppText>
-        <AppText style={styles.subTitle} ellipsizeMode="tail" numberOfLines={2}>
+        <AppText style={styles.subTitle} numberOfLines={2}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
           inventore, aspernatur labore asperiores quibusdam animi iste dolor
           facere dolores ullam?
@@ -26,9 +27,11 @@ export const ArticleCard = () => (
             source={{ uri: 'https://picsum.photos/id/14/18' }}
             style={styles.authorImage}
           />
-          <AppText style={styles.authorName}>Lorem, ipsum.</AppText>
-          <ArticleCardActions.Save />
-          <ArticleCardActions.Share />
+          <AppText style={styles.authorName} numberOfLines={1}>
+            Lorem, ipsum.
+          </AppText>
+          <ArticleCardSave />
+          <ArticleCardShare />
         </View>
       </View>
     </Pressable>

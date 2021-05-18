@@ -7,13 +7,13 @@ import {
   TextStyle,
 } from 'react-native';
 
-type AppTextProps = Omit<TextProps, 'style'> & {
+type AppTextProps = Omit<TextProps, 'style' | 'ellipsizeMode'> & {
   children: string;
   style: StyleProp<Omit<TextStyle, 'fontFamily'>>;
 };
 
 export const AppText = ({ children, style, ...props }: AppTextProps) => (
-  <Text style={[styles.txt, style]} {...props}>
+  <Text ellipsizeMode="tail" style={[styles.txt, style]} {...props}>
     {children}
   </Text>
 );
