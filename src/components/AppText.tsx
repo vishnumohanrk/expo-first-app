@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 type AppTextProps = Omit<TextProps, 'style' | 'ellipsizeMode'> & {
-  children: string;
+  children: React.ReactNode;
   style: StyleProp<Omit<TextStyle, 'fontFamily'>>;
 };
 

@@ -5,6 +5,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
 import { bottomBarOptions, BottomNav } from './components/BottomNav';
+import { CollectionsPage } from './screens/Collections';
 import { DiscoverPage } from './screens/Discover';
 import { appColors } from './utils/constants';
 
@@ -18,7 +19,7 @@ export const AppMain = () => (
       screenOptions={BottomNav}
     >
       <Tab.Screen name="Discover" component={DiscoverPage} />
-      <Tab.Screen name="Collections" component={DiscoverPage} />
+      <Tab.Screen name="Collections" component={CollectionsPage} />
     </Tab.Navigator>
     <StatusBar style="auto" backgroundColor="#20212499" />
   </NavigationContainer>
