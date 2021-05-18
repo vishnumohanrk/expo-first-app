@@ -7,5 +7,5 @@ export const appColors = {
 } as const;
 
 export const rippleConfig = {
-  color: 'rgba(255, 255, 255, 0.1)',
+  color: '#ffffff1A',
 } as const;

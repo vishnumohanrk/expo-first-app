@@ -1,25 +1,27 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { DarkTheme, NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import { AppHeader } from './components/AppHeader';
-import { ArticleCard } from './components/ArticleCard';
+import { bottomBarOptions, BottomNav } from './components/BottomNav';
+import { DiscoverPage } from './screens/Discover';
 import { appColors } from './utils/constants';
 
-export const AppMain = () => (
-  <View style={styles.root}>
-    <FlatList
-      style={{ paddingHorizontal: 16 }}
-      data={['1', '2', '3', '4', '5', '6']}
-      renderItem={() => <ArticleCard />}
-      ItemSeparatorComponent={() => <View style={{ height: 22 }} />}
-      ListHeaderComponent={() => <AppHeader />}
-      ListFooterComponent={() => <View style={{ height: 64 }} />}
-      keyExtractor={i => i}
-    />
+const Tab = createBottomTabNavigator();
 
-    <StatusBar style="auto" backgroundColor="rgba(32, 33, 36, 0.6)" />
-  </View>
+export const AppMain = () => (
+  <NavigationContainer theme={DarkTheme}>
+    <Tab.Navigator
+      sceneContainerStyle={styles.root}
+      tabBarOptions={bottomBarOptions}
+      screenOptions={BottomNav}
+    >
+      <Tab.Screen name="Discover" component={DiscoverPage} />
+      <Tab.Screen name="Collections" component={DiscoverPage} />
+    </Tab.Navigator>
+    <StatusBar style="auto" backgroundColor="#20212499" />
+  </NavigationContainer>
 );
 
 const styles = StyleSheet.create({

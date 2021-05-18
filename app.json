@@ -12,6 +12,10 @@
       "fallbackToCacheTimeout": 0
     },
 
+    "androidStatusBar": {
+      "backgroundColor": "#20212499",
+      "barStyle": "light-content"
+    },
     "androidNavigationBar": {
       "backgroundColor": "#202124",
       "barStyle": "dark-content"
