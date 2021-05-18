@@ -32,7 +32,7 @@ export const ArticleCard = (props: TArticle) => {
               {authorName}
             </AppText>
             <ArticleCardSave />
-            <ArticleCardShare />
+            <ArticleCardShare url={url} />
           </View>
         </View>
       </Pressable>
