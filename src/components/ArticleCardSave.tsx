@@ -1,12 +1,17 @@
 import * as React from 'react';
 
 import { appColors } from '../utils';
+import { TArticle } from '../utils/types';
 import { ArticleCardBtn } from './ArticleCardBtn';
 
-export const ArticleCardSave = () => {
+export const ArticleCardSave = (props: TArticle) => {
+  const { id } = props;
+
   const [isLiked, setIsLiked] = React.useState(false);
 
-  const handlePress = () => setIsLiked(c => !c);
+  const handlePress = () => {
+    setIsLiked(c => !c);
+  };
 
   return (
     <ArticleCardBtn

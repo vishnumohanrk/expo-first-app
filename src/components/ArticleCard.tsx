@@ -31,7 +31,7 @@ export const ArticleCard = (props: TArticle) => {
             <AppText style={styles.authorName} numberOfLines={1}>
               {authorName}
             </AppText>
-            <ArticleCardSave />
+            <ArticleCardSave {...props} />
             <ArticleCardShare url={url} />
           </View>
         </View>
