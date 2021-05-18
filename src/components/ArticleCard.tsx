@@ -1,42 +1,44 @@
+import * as Linking from 'expo-linking';
 import * as React from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 
 import { appColors, rippleConfig } from '../utils/constants';
+import { TArticle } from '../utils/types';
 import { AppText } from './AppText';
 import { ArticleCardSave } from './ArticleCardSave';
 import { ArticleCardShare } from './ArticleCardShare';
 
-export const ArticleCard = () => (
-  <View style={styles.container}>
-    <Pressable onPress={() => {}} android_ripple={rippleConfig}>
-      <View>
-        <Image
-          source={{ uri: 'https://picsum.photos/id/14/300' }}
-          style={styles.articleImage}
-        />
-        <AppText style={styles.title} numberOfLines={3}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        </AppText>
-        <AppText style={styles.subTitle} numberOfLines={2}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-          inventore, aspernatur labore asperiores quibusdam animi iste dolor
-          facere dolores ullam?
-        </AppText>
-        <View style={styles.authorIconsContainer}>
-          <Image
-            source={{ uri: 'https://picsum.photos/id/14/18' }}
-            style={styles.authorImage}
-          />
-          <AppText style={styles.authorName} numberOfLines={1}>
-            Lorem, ipsum.
+export const ArticleCard = (props: TArticle) => {
+  const { authorImage, authorName, coverImage, subtitle, title, url } = props;
+
+  const handlePress = () => {
+    Linking.openURL(url);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Pressable onPress={handlePress} android_ripple={rippleConfig}>
+        <View>
+          <Image source={{ uri: coverImage }} style={styles.articleImage} />
+          <AppText style={styles.title} numberOfLines={3}>
+            {title}
           </AppText>
-          <ArticleCardSave />
-          <ArticleCardShare />
+          <AppText style={styles.subTitle} numberOfLines={2}>
+            {subtitle}
+          </AppText>
+          <View style={styles.authorIconsContainer}>
+            <Image source={{ uri: authorImage }} style={styles.authorImage} />
+            <AppText style={styles.authorName} numberOfLines={1}>
+              {authorName}
+            </AppText>
+            <ArticleCardSave />
+            <ArticleCardShare />
+          </View>
         </View>
-      </View>
-    </Pressable>
-  </View>
-);
+      </Pressable>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

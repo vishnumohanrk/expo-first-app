@@ -6,6 +6,7 @@ import { AppText } from '../components/AppText';
 import { ArticleCard } from '../components/ArticleCard';
 import { Divider } from '../components/Divider';
 import { appColors } from '../utils/constants';
+import { defData } from '../utils/types';
 
 export const CollectionsPage = () => {
   const ListHeader = () => <AppHeader text="Saved" />;
@@ -23,7 +24,7 @@ export const CollectionsPage = () => {
     <FlatList
       style={{ paddingHorizontal: 16 }}
       data={[]}
-      renderItem={() => <ArticleCard />}
+      renderItem={() => <ArticleCard {...defData} />}
       ItemSeparatorComponent={Divider}
       ListHeaderComponent={ListHeader}
       ListFooterComponent={ListFooter}
