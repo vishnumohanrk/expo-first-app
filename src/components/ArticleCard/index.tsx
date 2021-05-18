@@ -2,11 +2,10 @@ import * as Linking from 'expo-linking';
 import * as React from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 
-import { appColors, rippleConfig } from '../utils';
-import { TArticle } from '../utils/types';
-import { AppText } from './AppText';
-import { ArticleCardSave } from './ArticleCardSave';
-import { ArticleCardShare } from './ArticleCardShare';
+import { appColors, rippleConfig, TArticle } from '../../utils';
+import { AppText } from '../helper/AppText';
+import { SaveButton } from './SaveButton';
+import { ShareButton } from './ShareButton';
 
 export const ArticleCard = (props: TArticle) => {
   const { authorImage, authorName, coverImage, subtitle, title, url } = props;
@@ -31,8 +30,8 @@ export const ArticleCard = (props: TArticle) => {
             <AppText style={styles.authorName} numberOfLines={1}>
               {authorName}
             </AppText>
-            <ArticleCardSave {...props} />
-            <ArticleCardShare url={url} />
+            <SaveButton {...props} />
+            <ShareButton url={url} />
           </View>
         </View>
       </Pressable>
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
   },
   articleImage: {
     width: '100%',
-    height: 205,
+    height: 200,
     resizeMode: 'cover',
   },
   title: {

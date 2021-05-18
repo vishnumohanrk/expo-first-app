@@ -2,16 +2,17 @@ import { MaterialIcons as MdIcon } from '@expo/vector-icons';
 import * as React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 
-import { rippleConfig } from '../utils';
+import { rippleConfig } from '../../utils';
 
-type ArticleCardBtnProps = {
+type ActionBtnProps = {
   label: string;
   color: string;
-  icoName: 'favorite' | 'favorite-outline' | 'share';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icoName: any;
   onPress: () => void;
 };
 
-export const ArticleCardBtn = (props: ArticleCardBtnProps) => {
+export const IconButton = (props: ActionBtnProps) => {
   const { color, icoName, label, onPress } = props;
 
   return (

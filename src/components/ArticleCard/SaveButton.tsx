@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import { appColors } from '../utils';
-import { TArticle } from '../utils/types';
-import { ArticleCardBtn } from './ArticleCardBtn';
+import { appColors, TArticle } from '../../utils';
+import { IconButton } from '../helper/IconButton';
 
-export const ArticleCardSave = (props: TArticle) => {
+export const SaveButton = (props: TArticle) => {
   const { id } = props;
 
   const [isLiked, setIsLiked] = React.useState(false);
@@ -14,7 +13,7 @@ export const ArticleCardSave = (props: TArticle) => {
   };
 
   return (
-    <ArticleCardBtn
+    <IconButton
       color={isLiked ? '#F18A82' : appColors.secondaryText}
       icoName={isLiked ? 'favorite' : 'favorite-outline'}
       label="Add to Collections"

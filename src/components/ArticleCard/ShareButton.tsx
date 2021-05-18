@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { Share } from 'react-native';
 
-import { appColors } from '../utils';
-import { ArticleCardBtn } from './ArticleCardBtn';
+import { appColors } from '../../utils';
+import { IconButton } from '../helper/IconButton';
 
-export const ArticleCardShare = ({ url }: { url: string }) => {
+export const ShareButton = ({ url }: { url: string }) => {
   const handlePress = () => {
     Share.share({ message: url }, { dialogTitle: 'Share' });
   };
 
   return (
-    <ArticleCardBtn
+    <IconButton
       color={appColors.secondaryText}
       icoName="share"
       label="Share Article"

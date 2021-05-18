@@ -1,18 +1,23 @@
 import * as React from 'react';
-import { StatusBar, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { appColors } from '../utils';
-import { AppText } from './AppText';
+import { AppText } from './helper/AppText';
 
-export const AppHeader = ({ text }: { text: string }) => (
-  <AppText style={styles.header}>{text}</AppText>
+export const AppHeader = () => (
+  <View style={styles.container}>
+    <AppText style={styles.text}>Dev.to Articles</AppText>
+  </View>
 );
 
 const styles = StyleSheet.create({
-  header: {
-    fontSize: 36,
-    textAlign: 'center',
+  container: {
+    padding: 16,
+    backgroundColor: appColors.secondaryBg,
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: '600',
     color: appColors.primaryText,
-    marginVertical: (StatusBar.currentHeight || 0) + 36,
   },
 });
