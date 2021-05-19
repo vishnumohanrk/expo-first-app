@@ -11,7 +11,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-
+    "githubUrl": "https://github.com/vishnumohanrk/expo-first-app",
     "androidStatusBar": {
       "backgroundColor": "#20212499",
       "barStyle": "light-content"

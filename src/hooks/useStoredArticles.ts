@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as React from 'react';
 import { useQuery } from 'react-query';
 
 import { storageKey, TArticle } from '../utils';
@@ -8,11 +9,17 @@ export const useStoredArticles = () => {
     AsyncStorage.getItem(storageKey),
   );
 
-  const allSaved: TArticle[] = data ? JSON.parse(data) : [];
+  const allSaved: TArticle[] = React.useMemo(
+    () => (data ? JSON.parse(data) : []),
+    [data],
+  );
 
-  const isSaved = (id: string) => allSaved.some(i => i.id === id);
+  const isSaved = React.useCallback(
+    (id: string) => allSaved.some(i => i.id === id),
+    [allSaved],
+  );
 
-  const addNew = (article: TArticle) => {
+  const addOne = (article: TArticle) => {
     AsyncStorage.setItem(storageKey, JSON.stringify([article, ...allSaved]));
     refetch();
   };
@@ -28,7 +35,7 @@ export const useStoredArticles = () => {
   return {
     allSaved,
     isSaved,
-    addNew,
+    addOne,
     deleteOne,
   };
 };

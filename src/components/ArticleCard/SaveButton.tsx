@@ -7,17 +7,17 @@ import { IconButton } from '../helper/IconButton';
 export const SaveButton = (props: TArticle) => {
   const { id } = props;
 
-  const { addNew, deleteOne, isSaved, allSaved } = useStoredArticles();
+  const { addOne, deleteOne, isSaved } = useStoredArticles();
   const [isLiked, setIsLiked] = React.useState(false);
 
   React.useEffect(() => {
     setIsLiked(isSaved(id));
-  }, [allSaved, id, isSaved]);
+  }, [isSaved, id]);
 
   const handlePress = () => {
     setIsLiked(c => !c);
     if (isLiked) deleteOne(id);
-    else addNew(props);
+    else addOne(props);
   };
 
   return (
