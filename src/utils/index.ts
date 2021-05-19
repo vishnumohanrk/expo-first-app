@@ -1,5 +1,7 @@
 import { DarkTheme, Theme } from '@react-navigation/native';
 
+export const storageKey = 'storedArticles';
+
 export const appColors = {
   primaryBg: '#202124',
   secondaryBg: '#313235',
