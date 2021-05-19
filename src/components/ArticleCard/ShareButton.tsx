@@ -12,7 +12,7 @@ export const ShareButton = ({ url }: { url: string }) => {
   return (
     <IconButton
       color={appColors.secondaryText}
-      icoName="share"
+      name="share"
       label="Share Article"
       onPress={handlePress}
     />

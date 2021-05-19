@@ -15,8 +15,8 @@ export const SaveButton = (props: TArticle) => {
   return (
     <IconButton
       color={isLiked ? '#F18A82' : appColors.secondaryText}
-      icoName={isLiked ? 'favorite' : 'favorite-outline'}
-      label="Add to Collections"
+      name={isLiked ? 'favorite' : 'favorite-outline'}
+      label="Add to Bookmarks"
       onPress={handlePress}
     />
   );

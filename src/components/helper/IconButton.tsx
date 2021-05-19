@@ -4,32 +4,24 @@ import { Pressable, StyleSheet } from 'react-native';
 
 import { rippleConfig } from '../../utils';
 
-type ActionBtnProps = {
+type ActionBtnProps = React.ComponentProps<typeof MdIcon> & {
   label: string;
-  color: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  icoName: any;
   onPress: () => void;
 };
 
-export const IconButton = (props: ActionBtnProps) => {
-  const { color, icoName, label, onPress } = props;
-
-  return (
-    <Pressable
-      onPress={onPress}
-      android_ripple={rippleConfig}
-      accessibilityLabel={label}
-    >
-      <MdIcon
-        style={styles.icoContainer}
-        color={color}
-        name={icoName}
-        size={22}
-      />
-    </Pressable>
-  );
-};
+export const IconButton = ({ label, onPress, ...rest }: ActionBtnProps) => (
+  <Pressable
+    onPress={onPress}
+    android_ripple={rippleConfig}
+    accessibilityLabel={label}
+  >
+    <MdIcon
+      size={22}
+      {...rest}
+      style={rest.style ? rest.style : styles.icoContainer}
+    />
+  </Pressable>
+);
 
 const styles = StyleSheet.create({
   icoContainer: {
