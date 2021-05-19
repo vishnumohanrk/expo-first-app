@@ -5,7 +5,7 @@ import { useInfiniteQuery } from 'react-query';
 import { ArticleList } from '../components/ArticleList';
 import { getArticles } from '../utils';
 
-export const HomePage = () => {
+export const ArticlesPage = () => {
   const { data, refetch, isLoading, fetchNextPage } = useInfiniteQuery(
     'articleList',
     getArticles,
@@ -26,10 +26,15 @@ export const HomePage = () => {
 
   return (
     <ArticleList
+      title="Articles"
       data={results}
       onEndReached={fetchMore}
       refreshControl={
-        <RefreshControl onRefresh={refetch} refreshing={isLoading} />
+        <RefreshControl
+          onRefresh={refetch}
+          refreshing={isLoading}
+          progressViewOffset={36}
+        />
       }
     />
   );
