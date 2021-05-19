@@ -32,7 +32,7 @@ export const navTheme: Theme = {
 
 export const getArticles = async ({ pageParam = 1 }): Promise<TArticle[]> => {
   const response = await fetch(
-    `https://dev.to/api/articles?page=${pageParam}&per_page=10`,
+    `https://dev.to/api/articles?page=${pageParam}&per_page=20`,
   );
 
   if (response.ok) {

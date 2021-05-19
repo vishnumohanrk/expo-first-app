@@ -6,7 +6,6 @@ import { TArticle } from '../utils';
 import { ArticleCard } from './ArticleCard';
 import { ListDivider } from './helper/ListDivider';
 import { AppHeader } from './helper/ListHeader';
-import { Spinner } from './helper/Spinner';
 
 type ArticleListProps = Omit<FlatListProps<TArticle>, 'renderItem'> & {
   title: string;
@@ -29,7 +28,6 @@ export const ArticleList = ({ data, title, ...rest }: ArticleListProps) => {
       ListHeaderComponent={Header}
       ListFooterComponent={View}
       ListFooterComponentStyle={styles.footer}
-      ListEmptyComponent={Spinner}
       {...rest}
     />
   );

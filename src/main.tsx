@@ -4,7 +4,11 @@ import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { navTheme } from './utils';
-import { tabBarOptions, tabItemOptions } from './utils/navHelpers';
+import {
+  bookmarkTabItemOption,
+  exploreTabItemOption,
+  tabBarOptions,
+} from './utils/navHelpers';
 import { ArticlesPage } from './views/ArticlesPage';
 import { BookmarksPage } from './views/BookmarksPage';
 
@@ -17,12 +21,12 @@ export const AppMain = () => (
       <Tab.Navigator tabBarOptions={tabBarOptions}>
         <Tab.Screen
           name="Explore"
-          options={tabItemOptions.articles}
+          options={exploreTabItemOption}
           component={ArticlesPage}
         />
         <Tab.Screen
           name="Bookmarks"
-          options={tabItemOptions.bookmarks}
+          options={bookmarkTabItemOption}
           component={BookmarksPage}
         />
       </Tab.Navigator>

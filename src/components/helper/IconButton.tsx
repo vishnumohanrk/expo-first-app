@@ -4,12 +4,12 @@ import { Pressable, StyleSheet } from 'react-native';
 
 import { rippleConfig } from '../../utils';
 
-type ActionBtnProps = React.ComponentProps<typeof MdIcon> & {
+type IconButtonProps = React.ComponentProps<typeof MdIcon> & {
   label: string;
   onPress: () => void;
 };
 
-export const IconButton = ({ label, onPress, ...rest }: ActionBtnProps) => (
+export const IconButton = ({ label, onPress, ...rest }: IconButtonProps) => (
   <Pressable
     onPress={onPress}
     android_ripple={rippleConfig}

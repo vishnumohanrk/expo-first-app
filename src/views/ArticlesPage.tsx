@@ -3,6 +3,7 @@ import { RefreshControl } from 'react-native';
 import { useInfiniteQuery } from 'react-query';
 
 import { ArticleList } from '../components/ArticleList';
+import { Spinner } from '../components/helper/Spinner';
 import { getArticles } from '../utils';
 
 export const ArticlesPage = () => {
@@ -29,6 +30,7 @@ export const ArticlesPage = () => {
       title="Articles"
       data={results}
       onEndReached={fetchMore}
+      ListEmptyComponent={Spinner}
       refreshControl={
         <RefreshControl
           onRefresh={refetch}
