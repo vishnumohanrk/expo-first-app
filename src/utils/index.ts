@@ -1,3 +1,5 @@
+import { DarkTheme, Theme } from '@react-navigation/native';
+
 export const appColors = {
   primaryBg: '#202124',
   secondaryBg: '#313235',
@@ -18,6 +20,14 @@ export type TArticle = {
   authorName: string;
   url: string;
   id: string;
+};
+
+export const navTheme: Theme = {
+  dark: true,
+  colors: {
+    ...DarkTheme.colors,
+    background: appColors.primaryBg,
+  },
 };
 
 export const getArticles = async ({ pageParam = 1 }): Promise<TArticle[]> => {

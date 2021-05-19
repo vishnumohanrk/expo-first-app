@@ -1,30 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { AppHeader } from './components/AppHeader';
-import { appColors } from './utils';
+import { navTheme } from './utils';
+import { BookmarksPage } from './views/BookmarksPage';
 import { HomePage } from './views/HomePage';
 
 const queryClient = new QueryClient();
+const Stack = createStackNavigator();
 
 export const AppMain = () => (
-  <SafeAreaView style={styles.root}>
-    <AppHeader />
-
+  <NavigationContainer theme={navTheme}>
     <QueryClientProvider client={queryClient}>
-      <HomePage />
+      <Stack.Navigator>
+        <Stack.Screen name="Articles" component={HomePage} />
+        <Stack.Screen name="Saved" component={BookmarksPage} />
+      </Stack.Navigator>
     </QueryClientProvider>
-
-    <StatusBar style="auto" backgroundColor={appColors.primaryBg} />
-  </SafeAreaView>
+  </NavigationContainer>
 );
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: appColors.primaryBg,
-  },
-});
