@@ -1,7 +1,3 @@
-import { DarkTheme, Theme } from '@react-navigation/native';
-
-export const storageKey = 'storedArticles';
-
 export const appColors = {
   primaryBg: '#202124',
   secondaryBg: '#313235',
@@ -24,18 +20,8 @@ export type TArticle = {
   id: string;
 };
 
-export const navTheme: Theme = {
-  dark: true,
-  colors: {
-    ...DarkTheme.colors,
-    background: appColors.primaryBg,
-  },
-};
-
 export const getArticles = async ({ pageParam = 1 }): Promise<TArticle[]> => {
-  const response = await fetch(
-    `https://dev.to/api/articles?page=${pageParam}&per_page=20`,
-  );
+  const response = await fetch(`https://dev.to/api/articles?page=${pageParam}`);
 
   if (response.ok) {
     const data = await response.json();

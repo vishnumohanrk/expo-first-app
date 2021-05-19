@@ -1,35 +1,26 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
+import { StyleSheet, View } from 'react-native';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { navTheme } from './utils';
-import {
-  bookmarkTabItemOption,
-  exploreTabItemOption,
-  tabBarOptions,
-} from './utils/navHelpers';
+import { appColors } from './utils';
 import { ArticlesPage } from './views/ArticlesPage';
-import { BookmarksPage } from './views/BookmarksPage';
 
 const queryClient = new QueryClient();
-const Tab = createBottomTabNavigator();
 
 export const AppMain = () => (
-  <NavigationContainer theme={navTheme}>
+  <View style={styles.root}>
     <QueryClientProvider client={queryClient}>
-      <Tab.Navigator tabBarOptions={tabBarOptions}>
-        <Tab.Screen
-          name="Explore"
-          options={exploreTabItemOption}
-          component={ArticlesPage}
-        />
-        <Tab.Screen
-          name="Bookmarks"
-          options={bookmarkTabItemOption}
-          component={BookmarksPage}
-        />
-      </Tab.Navigator>
+      <ArticlesPage />
     </QueryClientProvider>
-  </NavigationContainer>
+
+    <StatusBar style="auto" backgroundColor="#20212499" />
+  </View>
 );
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: appColors.primaryBg,
+  },
+});

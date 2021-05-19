@@ -1,4 +1,3 @@
-import { useScrollToTop } from '@react-navigation/native';
 import * as React from 'react';
 import { FlatList, FlatListProps, StyleSheet, View } from 'react-native';
 
@@ -12,14 +11,10 @@ type ArticleListProps = Omit<FlatListProps<TArticle>, 'renderItem'> & {
 };
 
 export const ArticleList = ({ data, title, ...rest }: ArticleListProps) => {
-  const scrollRef = React.useRef(null);
-  useScrollToTop(scrollRef);
-
   const Header = () => <AppHeader text={title} />;
 
   return (
     <FlatList
-      ref={scrollRef}
       style={styles.container}
       data={data}
       keyExtractor={i => i.id}
@@ -36,7 +31,6 @@ export const ArticleList = ({ data, title, ...rest }: ArticleListProps) => {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
-    paddingVertical: 24,
   },
   footer: {
     height: 64,

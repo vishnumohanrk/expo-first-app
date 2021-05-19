@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     fontSize: 48,
     textAlign: 'center',
     color: appColors.primaryText,
-    marginVertical: (StatusBar.currentHeight || 0) + 32,
+    marginTop: (StatusBar.currentHeight || 0) + 48,
+    marginBottom: 64,
   },
 });

@@ -4,7 +4,6 @@ import { Image, Pressable, StyleSheet, View } from 'react-native';
 
 import { appColors, rippleConfig, TArticle } from '../../utils';
 import { AppText } from '../helper/AppText';
-import { SaveButton } from './SaveButton';
 import { ShareButton } from './ShareButton';
 
 export const ArticleCard = (props: TArticle) => {
@@ -30,7 +29,6 @@ export const ArticleCard = (props: TArticle) => {
             <AppText style={styles.authorName} numberOfLines={1}>
               {authorName}
             </AppText>
-            <SaveButton {...props} />
             <ShareButton url={url} />
           </View>
         </View>
