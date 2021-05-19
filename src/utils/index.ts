@@ -20,8 +20,10 @@ export type TArticle = {
   id: string;
 };
 
-export const getArticles = async (page: number): Promise<TArticle[]> => {
-  const response = await fetch(`https://dev.to/api/articles?page=${page}`);
+export const getArticles = async ({ pageParam = 1 }): Promise<TArticle[]> => {
+  const response = await fetch(
+    `https://dev.to/api/articles?page=${pageParam}&per_page=10`,
+  );
 
   if (response.ok) {
     const data = await response.json();
