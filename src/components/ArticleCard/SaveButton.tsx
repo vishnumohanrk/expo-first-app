@@ -1,3 +1,4 @@
+import { useRoute } from '@react-navigation/native';
 import * as React from 'react';
 
 import { useStoredArticles } from '../../hooks/useStoredArticles';
@@ -10,6 +11,8 @@ export const SaveButton = (props: TArticle) => {
   const { addOne, deleteOne, isSaved } = useStoredArticles();
   const [isLiked, setIsLiked] = React.useState(false);
 
+  const route = useRoute();
+
   React.useEffect(() => {
     setIsLiked(isSaved(id));
   }, [isSaved, id]);
@@ -21,11 +24,15 @@ export const SaveButton = (props: TArticle) => {
   };
 
   return (
-    <IconButton
-      color={isLiked ? '#F18A82' : appColors.secondaryText}
-      name={isLiked ? 'favorite' : 'favorite-outline'}
-      label="Add to Bookmarks"
-      onPress={handlePress}
-    />
+    <>
+      {route.name === 'Explore' ? (
+        <IconButton
+          color={isLiked ? '#F18A82' : appColors.secondaryText}
+          name={isLiked ? 'favorite' : 'favorite-outline'}
+          label="Add to Bookmarks"
+          onPress={handlePress}
+        />
+      ) : null}
+    </>
   );
 };
