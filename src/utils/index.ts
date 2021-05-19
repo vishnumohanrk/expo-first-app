@@ -20,12 +20,23 @@ export type TArticle = {
   id: string;
 };
 
-export const sampleData: TArticle = {
-  coverImage: 'https://picsum.photos/id/14/300',
-  title: `Lorem ipsum dolor, sit amet consectetur adipisicing elit.`,
-  subtitle: `Lorem ipsum dolor sit amet consectetur adipisicing elit.Natus inventore, aspernatur labore animi iste dolor facere dolores ullam?`,
-  authorImage: 'https://picsum.photos/id/14/18',
-  authorName: 'Lorem, ipsum',
-  url: 'https://dev.to/',
-  id: '185a78',
+export const getArticles = async (page: number): Promise<TArticle[]> => {
+  const response = await fetch(`https://dev.to/api/articles?page=${page}`);
+
+  if (response.ok) {
+    const data = await response.json();
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return (data as any[]).map(i => ({
+      id: i.id.toString(),
+      authorImage: i.user.profile_image_90,
+      authorName: i.user.name,
+      coverImage: i.social_image,
+      subtitle: i.description,
+      title: i.title,
+      url: i.canonical_url,
+    }));
+  }
+
+  throw new Error();
 };

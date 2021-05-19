@@ -14,6 +14,8 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     backgroundColor: appColors.secondaryBg,
+    position: 'relative',
+    zIndex: 99,
   },
   text: {
     fontSize: 20,
