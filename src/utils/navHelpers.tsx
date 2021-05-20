@@ -3,6 +3,7 @@ import {
   BottomTabBarOptions,
   BottomTabNavigationOptions,
 } from '@react-navigation/bottom-tabs';
+import { DarkTheme, Theme } from '@react-navigation/native';
 import * as React from 'react';
 
 import { appColors } from '.';
@@ -19,6 +20,14 @@ export const tabBarOptions: BottomTabBarOptions = {
     fontSize: 15,
   },
   labelPosition: 'beside-icon',
+};
+
+export const navTheme: Theme = {
+  dark: true,
+  colors: {
+    ...DarkTheme.colors,
+    background: appColors.primaryBg,
+  },
 };
 
 export const exploreTabItemOption: BottomTabNavigationOptions = {

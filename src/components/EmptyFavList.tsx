@@ -8,7 +8,7 @@ export const EmptyFavList = () => (
   <AppText style={styles.fallbackText}>
     No Saved Articles.
     {'\n'}
-    Tap ♥ to add to bookmarks
+    Tap ♥ to add
   </AppText>
 );
 

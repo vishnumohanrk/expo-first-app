@@ -3,10 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { navTheme } from './utils';
 import {
   bookmarkTabItemOption,
   exploreTabItemOption,
+  navTheme,
   tabBarOptions,
 } from './utils/navHelpers';
 import { ArticlesPage } from './views/ArticlesPage';
